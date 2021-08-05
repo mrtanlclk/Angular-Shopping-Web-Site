@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": 6,
+      "name": "mert anıl çelik",
+      "price": 123,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut auctor diam, in maximus lorem. Nam condimentum, risus non rutrum sagittis, arcu justo accumsan metus, in commodo ipsum quam nec arcu. Duis justo augue, tristique quis arcu eget, varius auctor purus. Donec vestibulum nunc id est dapibus convallis. Suspendisse potenti. Cras aliquam feugiat urna. Etiam faucibus tincidunt urna, eu vehicula dolor accumsan semper. Duis id nulla vitae quam ornare euismod sit amet eget risus. Aenean congue elit sit amet dignissim accumsan. Etiam rutrum fermentum tempor.",
+      "image": "https://picsum.photos/200",
+      "valid": true,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "mazhar",
+      "price": 1231,
+      "description": "Cras aliquam feugiat urna. Etiam faucibus tincidunt urna, eu vehicula dolor accumsan semper. Duis id nulla vitae quam ornare euismod sit amet eget risus. Aenean congue elit sit amet dignissim accumsan. Etiam rutrum fermentum tempor.",
+      "image": "https://picsum.photos/seed/picsum/200/300",
+      "valid": true,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "merhabalar",
+      "price": 676,
+      "description": "asgasdfasghdasdf",
+      "image": "https://picsum.photos/200/300.jpg",
+      "valid": false,
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "name": "selamlar abc",
+      "price": 65,
+      "description": "sagittis, arcu justo accumsan metus, in commodo ipsum quam nec arcu. Duis justo augue, tristique quis arcu eget, varius auctor purus. Donec vestibulum nunc id est dapibus convallis. Suspendisse potenti. Cras aliquam feugiat urna. Etiam faucibus tincidunt urna, eu vehicula dolor accumsan semper. Duis id nulla vitae quam ornare euismod sit amet eget risus. Aenean congue elit sit amet dignissim accumsan. Etiam rutrum fermentum tempor.",
+      "image": "https://i.picsum.photos/id/1006/3000/2000.jpg?hmac=x83pQQ7LW1UTo8HxBcIWuRIVeN_uCg0cG6keXvNvM8g",
+      "valid": true,
+      "quantity": 1
+    },
+    {
+      "id": 12,
+      "name": "bardak",
+      "price": 67,
+      "description": "ergfadsfgadfgsdfg",
+      "image": "https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE",
+      "valid": true,
+      "quantity": 1
+    },
+    {
+      "id": 13,
+      "name": "xcvb",
+      "price": 43,
+      "description": "sdfhsdfgsdfg",
+      "image": "https://i.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68",
+      "valid": false,
+      "quantity": 1
+    },
+    {
+      "id": 14,
+      "name": "asdfasdf",
+      "price": 234,
+      "description": "asdfasdfasdgasdf",
+      "image": "https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ",
+      "valid": true,
+      "quantity": 1
+    }
+  ],
+  "dashboard": [
+    {
+      "id": 1,
+      "name": "Products Count",
+      "count": true,
+      "productImage": ""
+    },
+    {
+      "id": 2,
+      "name": "Product Sales Amount",
+      "count": "",
+      "productImage": "https://www.d3-graph-gallery.com/img/block/block_pieChartAnim.png"
+    },
+    {
+      "id": 3,
+      "name": "Sales-to-Date",
+      "count": "",
+      "productImage": "https://www.researchgate.net/profile/Tam-Le-14/publication/308016059/figure/fig2/AS:405480515096588@1473685496873/A-bar-graph-Representing-the-products-average-scores-along-with-their-error-bars.png"
+    },
+    {
+      "id": 4,
+      "name": "Products",
+      "count": "",
+      "productImage": "https://www.bloggang.com/data/a/apirat/picture/1424940380.jpg"
+    }
+  ]
+}

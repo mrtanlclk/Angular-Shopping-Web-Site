@@ -1,0 +1,24 @@
+<body>
+    <form [formGroup]="loginForm">
+        <div class="center">
+            <div class="title">
+                <h1>Login Page</h1>
+            </div>
+            <div class="message1">
+                <input type="text" formControlName="userName" pInputText placeholder="Username" name="userName"
+                    id="userName" required autofocus>
+                <p-message *ngIf="loginForm.get('userName')!.hasError('required') && loginForm.get('userName')!.dirty"
+                    severity="error" text="Username is required!"></p-message>
+            </div>
+            <div class="message2">
+                <input type="password" pPassword placeholder="Password" formControlName="password" name="password"
+                    id="password" required />
+                <p-message *ngIf="loginForm.get('password')!.hasError('required') && loginForm.get('password')!.dirty"
+                    severity="error" text="Password is required!"></p-message>
+            </div><br>
+            <button pButton id="button" type="button" label="Login" (click)="onSubmit()"></button>
+        </div>
+
+    </form>
+    <div class=box></div>
+</body>

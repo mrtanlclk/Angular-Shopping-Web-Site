@@ -1,0 +1,67 @@
+/* .container{
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.products{
+    width: 75%;
+}
+.list{
+    font-size: 20px;
+}
+ul:nth-child(2){
+    color: white;
+}
+li{
+    background-color: #009DFF;
+    padding: 10px;
+    border: 1px white solid;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    font-size: 30px;
+    color: #009DFF;
+    text-align: center;
+    margin: 50px;
+} */
+
+.flex{
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}a{
+    text-decoration: none;
+}
+.card{
+    margin: 10px;
+    height: auto;
+    width: auto;
+    border: 1px rebeccapurple solid;
+}
+img{
+    object-fit: contain;
+    height: 200px;
+    width: 200px;
+}
+.h1{
+    text-align: center; 
+    color:crimson;
+}
+.body{
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
+}
+.info{
+    color: crimson;
+}

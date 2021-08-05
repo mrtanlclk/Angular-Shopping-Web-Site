@@ -1,0 +1,51 @@
+<div class="buttons">
+  <button class="btn" pButton type="button" routerLink="/dashboard" label="Back"></button>
+  <button class="btn" pButton type="button" routerLink="/products-list" label="Go Valid Products List"></button>
+  <button class="btn" pButton type="button" routerLink="/add-form" label="Add"></button>
+</div><br><br>
+<form>
+  <div class="filter">
+    <div class="search">
+      <input id="productName" placeholder="Search Products" name="Term" [(ngModel)]="term" autocomplete="off">
+      <i class="pi pi-filter"></i>
+    </div>
+  </div><br><br>
+</form>
+
+<div>
+  <p-table [value]="products | filter:term" [resizableColumns]="true" styleClass="p-datatable-gridlines"
+    [reorderableColumns]="true">
+    <!-- <ng-template pTemplate="caption">
+      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+          selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" placeholder="Choose Columns"></p-multiSelect>
+  </ng-template> -->
+    <ng-template pTemplate="header">
+      <tr>
+        <td style="width:3rem"></td>
+        <th pResizableColumn pReorderableColumn>Product Image</th>
+        <th pResizableColumn pReorderableColumn>Product Name</th>
+        <th pResizableColumn pReorderableColumn>Product Valid</th>
+        <th pResizableColumn pReorderableColumn style="width:10rem">Update</th>
+        <th pResizableColumn pReorderableColumn style="width:10rem">Delete</th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-rowData let-columns="columns" let-index="rowIndex">
+      <tr [pReorderableRow]="index">
+        <td>
+          <span class="pi pi-bars"></span>
+        </td>
+        <td data-label="Product Image"><img src="{{product.image}}"></td>
+        <td data-label="Product Name">{{product.name}}</td>
+        <td *ngIf="product.valid" data-label="Product Valid">Valid Product</td>
+        <td *ngIf="!product.valid" data-label="Product Valid">Invalid Product</td>
+        <td data-label="Product Delete"><a routerLink="/update-form/{{product.id}}"><button pButton type="button"
+              class="p-button-secondary" icon="pi pi-user-edit"></button></a></td>
+        <td data-label="Product Delete"><button pButton type="button" (click)="delete(product.id)"
+            class="p-button-danger" icon="pi pi-trash"></button></td>
+
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

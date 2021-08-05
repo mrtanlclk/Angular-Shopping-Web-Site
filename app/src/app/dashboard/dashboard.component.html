@@ -1,0 +1,73 @@
+<!-- <p-splitter [style]="{'height': '600px'}" [panelSizes]="[20,50]" layout="horizontaly">
+    <ng-template pTemplate>
+        <div class="list">
+            <ul>
+                <h3>{{title}}</h3>
+            </ul>
+            <ul>
+                <li *ngFor="let dashboard of dashboard">
+                    <a routerLink="/products">{{dashboard.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </ng-template>
+    <ng-template pTemplate>
+        <app-products></app-products>
+        <router-outlet></router-outlet>
+    </ng-template>
+</p-splitter> -->
+
+<!-- <div class="container">
+    <div class="list">
+        <ul>
+            <h3>{{title}}</h3>
+        </ul>
+        <ul>
+            <li *ngFor="let dashboard of dashboard">
+                <a routerLink="/products">{{dashboard.name}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="products">
+        <h1>WELCOME TO SMARTERA SHOP  <br><br><br><br> PLEASE CHOOSE TO BUTTON WHICH PAGE YOU WANT TO GO!!</h1>
+        <app-products></app-products> 
+         <router-outlet></router-outlet>
+    </div>
+    
+    
+</div> -->
+
+<div class="h1"><h1>{{title}}</h1></div>
+
+<div class="flex">
+    
+    <div class="card" *ngFor="let dashboard of dashboard" >
+        
+            <p-card>
+                
+                <ng-template pTemplate="header">
+                    <a routerLink="/products">
+                        <h2 class="card-title">{{dashboard.name}}</h2>
+                    </a>
+                </ng-template>
+                <div class="body">
+                    <div class="info" *ngIf="dashboard.count">
+                        <b>Valid Products Count= {{validLenght()}}</b><br><br>
+                        <b>Invalid Products Count= {{invalidLenght()}}</b>
+                    </div>
+                    <div class="img" *ngIf="dashboard.productImage">
+                        <img src="{{dashboard.productImage}}" alt="">
+                    </div>
+                </div>
+                
+                <ng-template pTemplate="footer">
+                    
+                    <button pButton type="button" routerLink ="/products" label="Go To Page" icon="pi pi-external-link" iconPos="right"></button>
+                </ng-template>
+                
+            </p-card>
+            
+        
+    </div>
+</div>

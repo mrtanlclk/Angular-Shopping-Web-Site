@@ -1,0 +1,34 @@
+.flex{
+    display: flex;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.card{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+}
+.card-card{
+    margin: 10px;
+    height: auto;
+    border: 1px rebeccapurple solid;
+    
+}
+img{
+    object-fit: contain;
+    height: 200px;
+    width: 200px;
+}
+.h1{
+    text-align: center;
+    color: crimson; 
+}
+
+.btn{
+    margin-top: 10px;
+    width: 190px;
+}

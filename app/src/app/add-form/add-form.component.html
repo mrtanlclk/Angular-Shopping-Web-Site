@@ -1,0 +1,35 @@
+<body>
+<section class="main__form" >
+        <div class="container">
+          <form id="form" class="form" [formGroup]="addForm">
+            <h2>{{title}}</h2>
+            <div class="form-control">
+              <label for="name">Product Name:</label>
+              <input type="text" formControlName="name" id="name" name="name" placeholder="Enter name" required autofocus autocomplete="off">
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+              <label for="description">Description:</label>
+              <input type="text" formControlName="description" name="description" id="description" placeholder="Enter description" required autofocus autocomplete="off">
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+              <label for="image">Image:</label>
+              <input type="text" id="image" formControlName="image" name="image" placeholder="Enter image url" required autofocus autocomplete="off">
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+              <label for="price">price:</label>
+              <input type="number" min="0.00" max="10000.00" step="0.01" id="price" formControlName="price" name = "price" id="price" placeholder="Enter price" required autofocus>
+              <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="valid">valid</label>
+              <input type="checkbox" formControlName="valid" id="valid" formControlName="valid" name = "valid" id="valid"  placeholder="Valid" required autofocus>
+              <small>Error Message</small>
+            </div>
+            <button pButton type="button" (click)="add()" label="Add Product"></button>
+          </form>
+        </div>
+      </section>
+</body>

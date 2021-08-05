@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+
+
+<div class="container" *ngFor="let product of product_info">
+    
+        <div class="button">
+            <button class="btn" pButton type="button" routerLink="/dashboard" label="Back To Dashboard"></button>
+            <button class="btn" pButton type="button" routerLink="/products" label="Back To Products"></button>
+            <button pButton class="btn" type="button" label="Back To Valid Producs" routerLink="/products-list"></button>
+        </div>
+        <div class="flex">
+            <div>
+                <h2>{{product.name}}</h2>
+            </div><br>
+            <div class="price">
+                <h2>{{product.price | currency:'USD':true:"1.2-2"}}</h2>
+            </div>
+            <div class="image"><img src="{{product.image}}"></div>
+            <div>
+                <h3>
+                    <div>Product Description : </div>
+                    <div class="description">{{product.description}}</div>
+                </h3>
+            </div>
+        </div>
+</div>

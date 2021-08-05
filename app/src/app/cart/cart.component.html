@@ -1,0 +1,61 @@
+<h1>{{title}}</h1>
+
+
+<div class="container">
+  <div>
+    <div class="buttons">
+      <div><button class="btn" pButton type="button" routerLink="/dashboard" label="Back To Dashboard"></button></div>
+      <div><button class="btn" pButton type="button" routerLink="/products" label="Back To Products"></button></div>
+      <div><button class="btn" pButton type="button" routerLink="/products-list" label="Back To Products List"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-list" *ngIf="products.length != 0">
+    <div class="products">
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>Serial no</th>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index">
+            <td style="width: 2rem; text-align: center;">{{i+1}}</td>
+            <td>{{product.name}}</td>
+            <td><img src="{{product.image}}" alt=""></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency}}</td>
+            <td><input type="number" class="qty" [value]="product.quantity" (blur)="validateInput($event,i)"></td>
+            <td>{{product.price * product.quantity | currency:'USD':true:"1.2-2"}}</td>
+            <td><button pButton type="button" (click)="removeItem(i)"
+              class="p-button-danger" icon="pi pi-trash"></button></td>
+          </tr>
+          <tr>
+            <td colspan="4"></td>
+            <td><button class="p-button-danger" (click)="emptyCart()" pButton type="button" label="Empty Cart"></button></td>
+            <td><button class="p-button-secondary"  routerLink="/products-list" pButton type="button" label="Shop More"></button></td>
+            <!-- <td><strong>Grand Total: {{grandTotal | currency:'USD':true:"1.2-2"}}</strong></td> -->
+            <td class="abc"><strong>Grand Total: {{total | currency:'USD':true:"1.2-2"}}</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="product-list" *ngIf="products.length == 0">
+    <div class="center">
+      <img src="https://fotografium.com/static/version1616022951/frontend/MageBig/martfury_eren/tr_TR/images/empty-cart.svg" alt="">
+      <h3>Your cart is empty!</h3>
+      <h4>Add item it now</h4>
+      <div><button class="btn" pButton type="button" routerLink="/products-list" label="Shop Now"></button></div>
+    </div>
+  </div>
+</div>
