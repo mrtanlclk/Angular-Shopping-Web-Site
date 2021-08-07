@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { User } from '../login/user';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class LoginService {
 
   constructor(private http: HttpClientModule) { }
 
-  path = "http://localhost:4200/login";
+  path = environment.url+"/login";
 
   loggedIn = false;
 

@@ -7,7 +7,7 @@ import { Product } from '../products/products';
 })
 export class CartService {
 
-  public cartItemList: Product[]=[];
+  // public cartItemList: Product[]=[];
   public productList = new BehaviorSubject<any>([]);
   cartItems:Product[] = [];
   numOfItems = new BehaviorSubject<any>([]);
@@ -15,8 +15,8 @@ export class CartService {
   // cartItems = new BehaviorSubject([]);
 
   constructor() {
-    // const ls = JSON.parse(localStorage.getItem('cart') || '{}');
-    // if(ls) this.cartItems.next(ls)
+    const ls = JSON.parse(localStorage.getItem('cart') || '{}');
+    if(ls) this.numOfItems.next(ls)
   }
 
   getProduct(){
@@ -30,67 +30,76 @@ export class CartService {
     // localStorage.setItem("abc",JSON.stringify(this.cartItemList))
     // console.log(localStorage)
 
-    const exist = this.cartItems.find((item)=>{
-      return item.id === product.id;
+      
+    let exist = this.cartItems.find((item)=>{
+      return item.id == product.id;
     });
-    if(exist)
+    if(exist){
       exist.quantity++;
+      localStorage.setItem('cart', JSON.stringify(this.cartItems));
+    }
     else
       this.cartItems.push(product);
+      localStorage.setItem('cart', JSON.stringify(this.cartItems));
       this.numOfItems.next(this.cartItems)
+      console.log("cartitems =>")
       console.log(this.cartItems)
-
-
-
+    
     // const ls = JSON.parse(localStorage.getItem('cart') || '{}');
-
-
-    // let exist: Product;
-
-    // if(ls){}
-    //   exist = ls.find((item)=>{
-    //     return item.id === product.id;
-    //   });
+    
+    // let exist = this.cartItems.find((x)=> {
+    //    return x.id == product.id
+    // });
     
     // if(exist){
     //   exist.quantity++;
-    //   localStorage.setItem('cart', JSON.stringify(ls))
+    //   localStorage.setItem('cart', JSON.stringify(this.cartItems))
+    //   console.log(exist.quantity)
     // }
       
     // else{
+      
     //   if(ls){
-    //     const newData = [...ls, product];
-    //     localStorage.setItem('cart', JSON.stringify(newData));
-    //     this.cartItems.next(JSON.parse(localStorage.getItem('cart') || '{}'))
+        // const newData = [...ls, product];
+        // localStorage.setItem('cart', JSON.stringify(newData));
+        // this.numOfItems.next(JSON.parse(localStorage.getItem('cart') || '{}'))
+      // }
+      // else{
+        // this.cartItems.push(product);
+        // localStorage.setItem('cart', JSON.stringify(this.cartItems));
+        // this.numOfItems.next(this.cartItems);
     //   }
-    //   else{
-    //     this.placeholder.push(product);
-    //     localStorage.setItem('cart', JSON.stringify(this.placeholder));
-    //     this.cartItems.next(this.placeholder);
-    //   }
+      
+    
     // }
   }
-  getTotalPrice():number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-    grandTotal += a.total;
-  })
-    return grandTotal
-  }
+  // getTotalPrice():number{
+  //   let grandTotal = 0;
+  //   this.cartItems.map((a:any)=>{
+  //   grandTotal += a.total;
+  // })
+  //   return grandTotal
+  // }
   // removeCartItem(product:Product){
-  //   this.cartItemList.map((a:Product, index:number)=>{
+  //   this.cartItems.map((a:Product, index:number)=>{
   //     if(product.id === a.id){
-  //       this.cartItemList.splice(index, 1);
+  //       this.cartItems.splice(index, 1);
   //     }
   //   })
-  //   this.productList.next(this.cartItemList)
-  //   localStorage.removeItem("lasf")
+    
+  //   this.numOfItems.next(this.cartItemList)
+    
   //   console.log(this.productList)
   // }
 
   removeAll(){
     this.cartItems = [];
     this.numOfItems.next(this.cartItems);
+    localStorage.clear();
+    
+  }
+  setData(data:any){
+    localStorage.setItem('cart', JSON.stringify(data))
   }
   
 }

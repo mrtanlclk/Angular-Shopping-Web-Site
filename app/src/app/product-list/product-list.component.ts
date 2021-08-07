@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../products/products';
 import { ProductsService } from '../services/products.service';
 import { CartService } from '../services/cart.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -12,11 +13,14 @@ import { CartService } from '../services/cart.service';
 export class ProductListComponent implements OnInit {
 
   constructor(private products: Product, private productService: ProductsService,
-    private cartService: CartService) { }
+    private cartService: CartService) { 
+      
+    }
 
-  title = "VALID PRODUCTS LIST"
+  title = "VALID PRODUCTS LIST";
   product_list: Product[] = [];
   product_list2: Product[] = [];
+  list = new BehaviorSubject([]);
   totalItem :number = 0;
 
   ngOnInit(): void {
@@ -33,10 +37,17 @@ export class ProductListComponent implements OnInit {
       //   Object.assign(a,{quantity:1,total:a.price});
       // })
     });
+    console.log(localStorage.getItem('cart'))
+
+    const ls = JSON.parse(localStorage.getItem('cart') || '{}');
+    if(ls.length > 0){
+      this.list.next(ls)
+    }
 
     this.cartService.numOfItems.subscribe(res =>{
       this.totalItem = res.length;
     })
+    
     
   }
 

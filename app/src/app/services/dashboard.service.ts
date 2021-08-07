@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Dashboard } from '../dashboard/dashboard';
 import { tap, catchError} from 'rxjs/operators';
 import { Observable,throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,16 @@ export class DashboardService {
   
   constructor(private http: HttpClient) { }
 
-  path = "http://localhost:3000/dashboard";
+  path = environment.url + "/dashboard";
 
-  getDashboard():Observable<Dashboard[]>{
+  getDashboard():Observable<Dashboard[]>{//Promise
     return this.http.get<Dashboard[]>(this.path).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
+  
   }
+  
     handleError(err: HttpErrorResponse){
       let errorMassage = ''
       if(err.error instanceof ErrorEvent) {

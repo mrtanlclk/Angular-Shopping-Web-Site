@@ -88,8 +88,13 @@ h1{
 
 #userName:hover, #password:hover {
     width: 200px;
+    
 }
-
+#userName:focus, #password:focus {
+    width: 200px;
+    outline: none;
+    
+}
 #button:hover {
     cursor: pointer;
     width: 120px;

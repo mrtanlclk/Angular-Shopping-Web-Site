@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { Product } from '../products/products';
 import { tap, catchError} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  path = "http://localhost:3000/products";
+  path = environment.url + "/products";
   getProducts(): Observable<Product[]> {
     // alert(categoryId) categoryId nin gelip gelmediğin kontrol etmek için kullanabiliriz.
 

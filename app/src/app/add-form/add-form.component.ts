@@ -1,5 +1,5 @@
 import { JsonpClientBackend } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Dashboard } from '../dashboard/dashboard';
@@ -16,6 +16,8 @@ import { ProductsService } from '../services/products.service';
 })
 export class AddFormComponent implements OnInit {
 
+  // @Input()FormControl:control
+
   constructor(private formBuilder: FormBuilder, private productsService: ProductsService,
     private router: Router) { }
   addForm!: FormGroup;
@@ -30,7 +32,8 @@ export class AddFormComponent implements OnInit {
       price: ["", Validators.required],
       description: ["", Validators.required],
       image: ["", Validators.required],
-      valid: ["", Validators.required]
+      valid: ["", Validators.required],
+      quantity: ["1", Validators.required]
     })
   }
 

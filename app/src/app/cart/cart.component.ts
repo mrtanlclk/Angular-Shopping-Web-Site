@@ -9,7 +9,7 @@ import { CartService } from '../services/cart.service';
   providers:[Product]
 })
 export class CartComponent implements OnInit {
-
+  
   title="SHOPPING CART";
   public products:any = [];
   public grandTotal!:number;
@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
   //    this.products = res;
   //    this.grandTotal = this.cartService.getTotalPrice();
   //  })
-   console.log(this.products)
    this.cartService.numOfItems.subscribe(data=>{
      this.products = data;
 
@@ -31,10 +30,11 @@ export class CartComponent implements OnInit {
   }
   // removeItem(product:Product){
   //   this.cartService.removeCartItem(product);
+  //   this.cartService.setData(product);
   // }
   removeItem(i:number){
     this.products.splice(i,1);
-    this.cartService.numOfItems.next(this.cartService.cartItems)
+    this.cartService.setData(this.products);
   }
   // emptyCart(){
   //   this.cartService.removeAll();
